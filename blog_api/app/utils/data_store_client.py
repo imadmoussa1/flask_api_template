@@ -12,7 +12,7 @@ class DataStoreClient:
     @staticmethod
     def mongo_client():
         if DataStoreClient._mongo_client is None:
-            mongo_uri = open("/run/secrets/main_data_store_db_uri", "r").readline()
+            mongo_uri = open("/run/secrets/mongo_db_uri", "r").readline()
             DataStoreClient._mongo_client = MongoClient(mongo_uri)
 
         return DataStoreClient._mongo_client

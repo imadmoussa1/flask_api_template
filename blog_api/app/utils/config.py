@@ -3,8 +3,6 @@ import os
 
 # Configuration class to load environments variables
 class Config(object):
-    _filter_service_name = None
-    _filter_service_grpc_port = None
     _sqlalchemy_database_uri = None
     _debug = None
     _testing = None
@@ -15,6 +13,8 @@ class Config(object):
     _jwt_secret_key = None
     _blog_database_name = None
     _blog_drafts_collection_name = None
+    _database_port = None
+    _database_name = None
 
     @staticmethod
     def sqlalchemy_database_uri():
@@ -59,16 +59,16 @@ class Config(object):
         return Config._debug
 
     @staticmethod
-    def database_service_name():
-        if Config._database_service_name is None:
-            Config._database_service_name = os.getenv('MAIN_DATASTORE_SERVICE_NAME', 'main-data-store')
-        return Config._database_service_name
+    def database_name():
+        if Config._database_name is None:
+            Config._database_name = os.getenv('MONGO_NAME', 'mongo')
+        return Config._database_name
 
     @staticmethod
-    def database_service_port():
-        if Config._database_service_port is None:
-            Config._database_service_port = int(os.getenv('MAIN_DATASTORE_SERVICE_MONGO_PORT', 27017))
-        return Config._database_service_port
+    def database_port():
+        if Config._database_port is None:
+            Config._database_port = int(os.getenv('MONGO_PORT', 27017))
+        return Config._database_port
 
     @staticmethod
     def blog_database_name():

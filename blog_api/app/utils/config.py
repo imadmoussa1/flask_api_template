@@ -3,8 +3,6 @@ import os
 
 # Configuration class to load environments variables
 class Config(object):
-    _filter_service_name = None
-    _filter_service_grpc_port = None
     _sqlalchemy_database_uri = None
     _debug = None
     _testing = None

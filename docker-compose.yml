@@ -73,7 +73,7 @@ services:
       - mongo-volume:/data/db
 
   postgres:
-    image: postgres:11.0
+    image: postgres
     container_name: postgres
     restart: always
     # ports:
@@ -108,7 +108,7 @@ services:
       - pgadmin-volume:/var/lib/pgadmin
 
   charts:
-    image: quay.io/mongodb/charts:v0.10.0
+    image: quay.io/mongodb/charts:19.09
     hostname: charts
     container_name: charts
     depends_on:
